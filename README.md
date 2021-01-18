@@ -15,6 +15,7 @@ Minikube requires a container manager. I recommend you go with Docker here, but 
 Minikube is a local Kubernetes environment. You won’t see this tool used in production environments much (if at all), but it’s great for learning, because it’s always free. 
 
 **[kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)**
+
 We also need kubectl. Some people will pronounce this `koob-cuttle` or `cube-control`. This is what allows us to interact with Kubernetes.
 
 **This repository**
