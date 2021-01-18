@@ -7,6 +7,7 @@
 ### Tools
 
 **[Docker](https://www.docker.com/products/docker-desktop)**
+
 Minikube requires a container manager. I recommend you go with Docker here, but it also supports Podman, Virtualbox, VMWare, Hyperkit, Hyper-V, KVM, and Parallels.
 
 **[Minikube](https://minikube.sigs.k8s.io/docs/start/)**
@@ -17,6 +18,7 @@ Minikube is a local Kubernetes environment. You won’t see this tool used in pr
 We also need kubectl. Some people will pronounce this `koob-cuttle` or `cube-control`. This is what allows us to interact with Kubernetes.
 
 **This repository**
+
 Fork and clone this repository. I have provided you with all of the configuration files you'll need to try this yourself.
 
 
