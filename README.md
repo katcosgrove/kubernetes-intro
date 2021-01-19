@@ -8,7 +8,7 @@
 
 **[Docker](https://www.docker.com/products/docker-desktop)**
 
-Minikube requires a container manager. I recommend you go with Docker here, but it also supports Podman, Virtualbox, VMWare, Hyperkit, Hyper-V, KVM, and Parallels.
+Minikube requires something for virtualization. I recommend you go with Docker here, but it also supports Podman, Virtualbox, VMWare, Hyperkit, Hyper-V, KVM, and Parallels.
 
 **[Minikube](https://minikube.sigs.k8s.io/docs/start/)**
 
@@ -30,6 +30,8 @@ Confirm that minikube is installed with `minikube version`, then start your clus
 There are a few ways to do this. We can use kubectl to do it right here in the terminal by pointing it at config files written in a format called YAML, or we can use a tool called Helm, which does a lot more for us but is kind of beyond the scope of this repo. For now, we’ll use YAML, and let kubectl handle it for us.
 
 Kubernetes is useful because it allows you to scale your application without quite as much work. To demonstrate that, we’ll deploy a small containerized Flask app with replicas.
+
+**Note:** Kubernetes supports something called "namespaces," which allows you to organize things into virtual clusters. It's a great way to limit scope and control access. I am not using namespaces for this tutorial though, so everything will go into the default namespace.
 
 `kubernetes/deployment.yaml`
 
@@ -78,7 +80,7 @@ That’s not very convenient though, and it doesn’t offer much in the way of c
 
 Install it by running `minikube addons enable ingress`.
 
-To confirm that the pods are up, run `kubectl get pods -n kube-system` and look for pods that start with ingress-nginx. Note that other Kubernetes environments will put these in the `ingress-nginx` namespace, instead. Now let’s add a CluterIP service.
+To confirm that the pods are up, run `kubectl get pods -n kube-system` and look for pods that start with ingress-nginx. Note that other Kubernetes environments will put these in the `ingress-nginx` namespace, instead. Now let’s add a ClusterIP service. That's what exposes your deployment within the cluster.
 
 `service.yaml`
 
@@ -101,7 +103,7 @@ Like always, we have some metadata like a name, we tell it which ports to target
 
 Apply it with `kubectl apply -f service.yaml`.
 
-The last thing we need to do is define the ingress resource. It’s the final piece that allows our application to be visible outside of the cluster.
+The last thing we need to do is define the ingress resource. It’s the final piece that allows our application to be this is what exposes your application to the outside world.
 
 `ingress.yaml`
 ```
@@ -121,9 +123,9 @@ spec:
 
 Just like with all of our other config files, we're giving it some metadata, and telling it what to target. In this case it's the service we defined already, and the service's port.
 
-As before, apply it with `kubectl apply -f service.yaml -n demo`
+As before, apply it with `kubectl apply -f service.yaml`
 
-Now if you run `kubectl get ingress`, you’ll get an IP address. Go there in a browser, and we can see our app!
+Now if you run `kubectl get ingress`, you’ll get an IP address. Go there in a browser, and there's your app, deployed on Kubernetes!
 
 
 
