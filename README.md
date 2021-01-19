@@ -128,5 +128,13 @@ As before, apply it with `kubectl apply -f service.yaml`
 Now if you run `kubectl get ingress`, you’ll get an IP address. Go there in a browser, and there's your app, deployed on Kubernetes!
 
 
+### Additional Resources
 
+[Configure a Pod to use Storage Volumes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-volume-storage/)
+
+[Observability - Honeycomb](https://www.honeycomb.io/kubernetes/)
+
+[Observability - OpenTelemetry](https://opentelemetry.io/)
+
+[Cloud Native Computing Foundation Landscape](https://landscape.cncf.io/)
 
