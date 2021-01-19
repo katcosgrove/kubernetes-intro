@@ -130,6 +130,10 @@ Now if you run `kubectl get ingress`, you’ll get an IP address. Go there in a 
 
 ### Additional Resources
 
+[Kubernetes Interactive Tutorial](https://kubernetes.io/docs/tutorials/kubernetes-basics/)
+
+[Katakoda Learn Kubernetes](https://katacoda.com/courses/kubernetes)
+
 [Configure a Pod to use Storage Volumes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-volume-storage/)
 
 [Observability - Honeycomb](https://www.honeycomb.io/kubernetes/)
