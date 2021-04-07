@@ -5,7 +5,7 @@ metadata:
   labels:
     app: demo-deployment
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: demo-deployment
@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: flask
-        image: katdemo.jfrog.io/docker/kubernetes-demo:latest
+        image: katcsandbox.jfrog.io/demo-docker/kubernetes-demo:latest
         ports:
         - containerPort: 5000
